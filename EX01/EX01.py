@@ -10,7 +10,7 @@ from ev3devmocka import ev3
 
 class Robot:
     def __init__(self):
-        self.speed = 100
+        self.speed = 50
         self.btn = ev3.Button()
         self.motor_left = ev3.LargeMotor('outA')
         self.motor_right = ev3.LargeMotor('outD')
@@ -38,8 +38,8 @@ class Robot:
             self.motor_left.run_forever(speed_sp=self.speed)
         elif direction == "left":
             # print("turning left with:", -self.speed)
-            self.motor_left.run_forever(speed_sp=-self.speed) # Changed these
-            self.motor_right.run_forever(speed_sp=self.speed)
+            self.motor_left.run_forever(speed_sp=-2*self.speed) # Changed these
+            self.motor_right.run_forever(speed_sp=2*self.speed)
 
     def stop(self):
         self.motor_left.stop()
